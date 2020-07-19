@@ -1,0 +1,2 @@
+# cf
+codeforces competitions automation
