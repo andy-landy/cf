@@ -1,6 +1,7 @@
 # cf
 codeforces competitions automation
 
+
 ### example
 
 ```sh
@@ -13,12 +14,12 @@ $ ~/cf/prepare_problem_dirs --contest 1379 --names A B C D E F1 F2
 $ cd A
 $ vim solve.cpp
 $ ~/cf/test_cpp
-# submit code via website
+# now submit main.cpp via website
 
 $ cd B
 $ vim p.py
 $ ~/cf/test_py
-# submit code via website
+# now submit p.py via website
 
 $ cd C
 ...
@@ -37,6 +38,6 @@ $ cd C
 * cpp code resides at solve.cpp
 * cpp code is packed in main.cpp, binary name is a.out
 * py code resides at p.py
-* input names are "in$i", output names are "out$i" with i in 0..<some n>
+* input names are "in$i", output names are "out$i" with i in 0..N, you can add some manually
 
 
