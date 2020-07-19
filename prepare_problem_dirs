@@ -1,0 +1,3 @@
+ROOT_DIR=$(dirname $0)
+
+python $ROOT_DIR/tools/prepare_problem_dirs/__main__.py --ref-dir $ROOT_DIR/sample_problem_dir $@

@@ -1,0 +1,36 @@
+set -e
+
+ROOT_DIR=$(dirname $0)
+
+cat solve.cpp | python $ROOT_DIR/tools/make_single_cpp/__main__.py --include $ROOT_DIR > main.cpp
+
+g++ -std=c++17 -O0 main.cpp
+
+for i in $(seq 0 10) ; do
+    IN=in$i
+    OUT=out$i
+
+    if [ ! -f $IN ] ; then
+        break
+    fi
+
+    OUT_TEXT=$(cat $IN | ./a.out)
+
+    DIFF=0
+    diff -w $OUT <(echo "$OUT_TEXT") || DIFF=$?
+
+    if [ $DIFF -eq 0 ] ; then 
+        echo "$i) OK"
+    else
+        echo "$i) FAIL"
+        echo
+        echo IN: "$(cat $IN)"
+        echo
+        echo EXPECTED: "$(cat $OUT)"
+        echo 
+        echo GOT: "$OUT_TEXT"
+        echo
+        echo DIFF: "$(diff -y -w $OUT <(echo "$OUT_TEXT") || :)"
+    fi
+done
+

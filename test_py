@@ -1,0 +1,30 @@
+set -e
+
+for i in $(seq 0 10) ; do
+    IN=in$i
+    OUT=out$i
+
+    if [ ! -f $IN ] ; then
+        break
+    fi
+
+    OUT_TEXT=$(cat $IN | python3 p.py)
+    
+    DIFF=0
+    diff -w $OUT <(echo "$OUT_TEXT") || DIFF=$?
+
+    if [ $DIFF -eq 0 ] ; then 
+        echo "$i) OK"
+    else
+        echo "$i) FAIL"
+        echo
+        echo IN: "$(cat $IN)"
+        echo
+        echo EXPECTED: "$(cat $OUT)"
+        echo 
+        echo GOT: "$OUT_TEXT"
+        echo
+        echo DIFF: "$(diff -y -w $OUT <(echo "$OUT_TEXT") || :)"
+    fi
+done
+
