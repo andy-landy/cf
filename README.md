@@ -1,5 +1,5 @@
 # cf
-codeforces competitions automation
+Codeforces competitions automation.
 
 
 ### example
@@ -12,20 +12,20 @@ $ cd todays_competition
 $ ~/cf/prepare_problem_dirs --contest 1379 --names A B C D E F1 F2
 
 $ cd A
-$ vim solve.cpp
-$ ~/cf/test_cpp
+$ vim solve.cpp                         # repeat
+$ ~/cf/test_cpp                         #   until tests are OK
 # now submit main.cpp via website
 
 $ cd ../B
-$ vim main.py
-$ ~/cf/test_py
+$ vim main.py                           # repeat
+$ ~/cf/test_py                          #   utill tests are OK
 # now submit main.py via website
 
 $ cd ../C
 ...
 ```
 
-### features
+### Features
 
 * Makes a dir tree with code stubs.
 * Downloads sample inputs and outputs.
@@ -33,14 +33,14 @@ $ cd ../C
 * Tests the code against downloaded inputs and outputs.
 
 
-### conventions
+### Conventions
 
 * C++ code to edit is `solve.cpp`.
 * C++ code to submit is `main.cpp`.
 * Python code to edit and submit is `main.py`.
-* Inputs are `in$i`, outputs are `out$i` with i in `0 1 2 ...` . You can manually add new ones.
+* Inputs are `in$i`, outputs are `out$i` with `i` in `0 1 2 ...` . You can manually add new ones.
 
-### requirements
+### Requirements
 
 * Python 3.6+.
 * Install extra libs with `pip install -r requirements.txt`.
