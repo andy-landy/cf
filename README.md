@@ -27,17 +27,23 @@ $ cd ../C
 
 ### features
 
-* makes a dir tree with code stubs
-* downloads sample inputs and outputs
-* allows local cpp includes, making a pretty single main.cpp
-* tests the code against downloaded inputs and outputs
+* Makes a dir tree with code stubs.
+* Downloads sample inputs and outputs.
+* Allows local cpp includes, making a pretty single `main.cpp`.
+* Tests the code against downloaded inputs and outputs.
 
 
 ### conventions
 
-* cpp code to edit is solve.cpp
-* cpp code to submit is main.cpp
-* py code to edit and submit is main.py
-* input names are "in$i", output names are "out$i" with i in 0..N, you can add some manually
+* C++ code to edit is `solve.cpp`.
+* C++ code to submit is `main.cpp`.
+* Python code to edit and submit is `main.py`.
+* Inputs are `in$i`, outputs are `out$i` with i in `0 1 2 ...` . You can manually add new ones.
+
+### requirements
+
+* Python 3.6+.
+* Install extra libs with `pip install -r requirements.txt`.
+* For C++ you need `g++` with `-std=c++2a` and `-fconcepts`, version 9 is fine.
 
 
