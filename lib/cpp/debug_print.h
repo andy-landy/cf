@@ -20,6 +20,9 @@ concept CIsMapping = requires(TMapping mapping) {
         -> std::pair<typename TMapping::key_type, typename TMapping::mapped_type>;
 };
 
+template<typename TString>
+concept CIsString = std::is_base_of<std::string, TString>::value;
+
 // - print functions - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 template<CIsIterable TIterable>
@@ -68,9 +71,7 @@ std::ostream &operator<<(std::ostream &out, const std::unordered_set<TValue> &va
 }
 
 template<typename TIterable>
-    requires CIsIterable<TIterable> 
-        && !CIsMapping<TIterable> 
-        && !std::is_base_of<std::string, TIterable>::value
+    requires CIsIterable<TIterable> && !CIsMapping<TIterable> && !CIsString<TIterable>
 std::ostream &operator<<(std::ostream &out, const TIterable &values) {
     PrintIterable<TIterable>(out, values, '(', ')', ',');
     return out;
