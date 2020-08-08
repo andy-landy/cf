@@ -16,12 +16,12 @@ $ vim solve.cpp
 $ ~/cf/test_cpp
 # now submit main.cpp via website
 
-$ cd B
-$ vim p.py
+$ cd ../B
+$ vim main.py
 $ ~/cf/test_py
-# now submit p.py via website
+# now submit main.py via website
 
-$ cd C
+$ cd ../C
 ...
 ```
 
@@ -35,9 +35,9 @@ $ cd C
 
 ### conventions
 
-* cpp code resides at solve.cpp
-* cpp code is packed in main.cpp, binary name is a.out
-* py code resides at p.py
+* cpp code to edit is solve.cpp
+* cpp code to submit is main.cpp
+* py code to edit and submit is main.py
 * input names are "in$i", output names are "out$i" with i in 0..N, you can add some manually
 
 

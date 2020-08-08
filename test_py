@@ -8,7 +8,7 @@ for i in $(seq 0 10) ; do
         break
     fi
 
-    OUT_TEXT=$(cat $IN | python3 p.py)
+    OUT_TEXT=$(cat $IN | python3 main.py)
     
     DIFF=0
     diff -w $OUT <(echo "$OUT_TEXT") || DIFF=$?

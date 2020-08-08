@@ -14,10 +14,14 @@ def iter_in_out_texts(contest: str, name: str) -> Iterator[Tuple[str, str]]:
 
     for sample_div in bs4.BeautifulSoup(response.text, features='html.parser')\
             .findAll('div', attrs={'class': 'sample-test'}):
-        yield (
-            sample_div.find('div', attrs={'class': 'input'}).find('pre').text.strip(),
-            sample_div.find('div', attrs={'class': 'output'}).find('pre').text.strip(),
-        )
+        for in_div, out_div in zip(
+            sample_div.findAll('div', attrs={'class': 'input'}),
+            sample_div.findAll('div', attrs={'class': 'output'}),
+        ):
+            yield (
+                in_div.find('pre').text.strip(),
+                out_div.find('pre').text.strip(),
+            )
 
 
 def prepare_problem_dirs(at: str, ref_dir: str, names: List[str], contest: str) -> NoReturn:

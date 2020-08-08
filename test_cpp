@@ -4,7 +4,7 @@ ROOT_DIR=$(dirname $0)
 
 cat solve.cpp | python $ROOT_DIR/tools/make_single_cpp/__main__.py --include $ROOT_DIR > main.cpp
 
-g++ -std=c++17 -O0 main.cpp
+g++ -std=c++2a -fconcepts -O0 main.cpp
 
 for i in $(seq 0 10) ; do
     IN=in$i
